@@ -56,6 +56,7 @@
     "@rbxts/charm-sync": "^0.1.1",
     "@rbxts/expect": "^2.0.1",
     "@rbxts/flamework-binary-serializer": "0.6.0",
+    "@rbxts/immut": "^0.4.4-ts.0",
     "@rbxts/lapis": "0.3.6",
     "@rbxts/lapis-mockdatastore": "0.3.7",
     "@rbxts/mock-memory-store-service": "0.2.0-13",
