@@ -1,0 +1,14 @@
+node_modules
+
+places/*/include
+places/*/flamework.build
+places/*/out
+places/*/dist
+
+out
+
+*sourcemap.json
+dist
+
+.env
+.cookie

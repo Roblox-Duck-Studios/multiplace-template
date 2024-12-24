@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: typescript
+        versions: [">=5.6"]
+      - dependency-name: eslint
+        versions: ["9"]
+    groups:
+      deps:
+        dependency-type: "production"
+      deps-dev:
+        dependency-type: "development"

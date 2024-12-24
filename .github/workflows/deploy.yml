@@ -1,0 +1,62 @@
+name: "deploy"
+
+on:
+ workflow_dispatch:        
+ push: 
+  paths-ignore: 
+    - "package.json"
+    - "*README.md"
+  branches: [main]
+
+jobs:
+
+ linting:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: CompeyDev/setup-rokit@v0.1.2
+    - uses: oven-sh/setup-bun@v2
+      with:
+       bun-version: latest    
+
+    - name: install packages
+      run: bun i
+
+    - name: run linter
+      run: bun run eslint
+
+ deploy:
+  needs: linting
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: CompeyDev/setup-rokit@v0.1.2
+    - uses: oven-sh/setup-bun@v2
+      with:
+       bun-version: latest
+
+    - name: install packages
+      run: bun i
+
+    - name: compile demo
+      run: cd places/demo && bun run build
+    
+    - name: compile common
+      run: cd places/common && bun run build
+
+    - name: process demo
+      run: darklua process places/demo/out places/demo/dist -v -c .darklua.json
+
+    - name: setup lune
+      run: lune setup
+
+    - name: offline sync
+      run: lune run sync places/demo darklua.project.json
+      
+    - name: deploy
+      env:
+        UID: ${{vars.UNIVERSE}}
+        DEMO: ${{vars.PLACE}}
+        API_KEY: ${{secrets.RBX_CLOUD}}
+        FILE: places/demo/build.rbxl
+      run: rbxcloud experience publish -a "$API_KEY" -u "$UID" -p "$DEMO" -t published -f "$FILE" 

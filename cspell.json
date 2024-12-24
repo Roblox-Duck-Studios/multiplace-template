@@ -1,0 +1,17 @@
+{
+    "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/refs/heads/main/cspell.schema.json",
+    "dictionaries": [
+        "custom"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "custom",
+            "path": "custom-words.txt",
+            "addWords": true
+        }
+    ],
+    "import": [
+        "@isentinel/dict-roblox/cspell-ext.json",
+        "@isentinel/dict-rbxts/cspell-ext.json"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+	"generator": "dense",
+	"rules": [
+		"remove_spaces",
+		"remove_assertions",
+		"compute_expression",
+		"remove_unused_if_branch",
+		"remove_unused_while",
+		"filter_after_early_return",
+		"remove_empty_do",
+		"remove_unused_variable",
+		"remove_debug_profiling",
+		"remove_method_definition",
+		"convert_index_to_field",
+		"remove_nil_declaration",
+		"rename_variables",
+		"remove_function_call_parens",
+		"group_local_assignment",
+		"convert_local_function_to_assign",
+		{
+			"rule": "remove_comments",
+			"except": ["^--!"]
+		},
+		"remove_debug_profiling"
+	]
+}

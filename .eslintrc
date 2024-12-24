@@ -1,0 +1,208 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"jsx": true,
+		"useJSXTextNode": true,
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"ignorePatterns": [
+		"/out"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"roblox-ts",
+		"prettier",
+		"unused-imports",
+		"simple-import-sort",
+		"jsx-a11y"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:roblox-ts/recommended",
+		"plugin:prettier/recommended",
+		"plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:@cspell/recommended",
+		"plugin:naming/recommended"
+	],
+	"settings": {
+		"react": {
+			"version": "17.2.1"
+		},
+		"@cspell/spellchecker": [{
+      		"dictionaries": [
+      		  "custom"
+      		],
+      		"dictionaryDefinitions": [
+      	  	{
+      	    	"name": "custom",
+      	    	"path": "custom-words.txt",
+      	    	"addWords": true
+      		}
+      	],
+		  "import": [
+			"@isentinel/dict-roblox/cspell-ext.json",
+			"@isentinel/dict-rbxts/cspell-ext.json"
+		]
+    }]
+	},
+	"rules": {
+		"@typescript-eslint/naming-convention": [
+			"warn",
+			{
+				"selector": "class",
+				"format": ["PascalCase"]
+			},
+			{
+				"selector": "classMethod",
+				"format": ["PascalCase", "camelCase"],
+				"custom": {
+					"regex": "^(on[A-Z][a-zA-Z0-9]*|[A-Z][a-zA-Z0-9]*)$",
+					"match": true
+				}
+			},
+			{
+				"selector": "classProperty",
+				"format": ["PascalCase"]
+			},
+			{
+				"selector": "enum",
+				"format": ["PascalCase"]
+			},
+			{
+				"selector": "enumMember",
+				"format": ["PascalCase"]
+			},
+			{
+				"selector": "function",
+				"modifiers": ["exported"],
+				"format": ["PascalCase", "camelCase"],
+				"custom": {
+					"regex": "^(use[A-Z][a-zA-Z0-9]*|select[A-Z][a-zA-Z0-9]*|[A-Z][a-zA-Z0-9]*)$",
+					"match": true
+				}
+			},
+			{
+				"selector": "interface",
+				"format": ["PascalCase"],
+				"leadingUnderscore": "allowSingleOrDouble",
+				"trailingUnderscore": "allowSingleOrDouble"
+			},
+			{
+				"selector": "objectLiteralMethod",
+				"format": ["PascalCase", "camelCase"]
+			},
+			{
+				"selector": "objectLiteralProperty",
+				"format": ["PascalCase", "camelCase"]
+			},
+			{
+				"selector": "objectLiteralProperty",
+				"format": ["PascalCase", "camelCase"]
+			},
+			{
+				"selector": "parameter",
+				"format": ["camelCase"]
+			},
+			{
+				"selector": "parameter",
+				"modifiers": ["destructured"],
+				"format": ["camelCase", "PascalCase"]
+			},
+			{
+				"selector": "parameterProperty",
+				"format": ["camelCase"]
+			},
+			{
+				"selector": "typeAlias",
+				"format": ["StrictPascalCase"]
+			},
+			{
+				"selector": "typeMethod",
+				"format": ["StrictPascalCase", "strictCamelCase"],
+				"custom": {
+					"regex": "^(on[A-Z][a-zA-Z0-9]*|[A-Z][a-zA-Z0-9]*)$",
+					"match": true
+				}
+			},
+			{
+				"selector": "typeParameter",
+				"format": ["StrictPascalCase"]
+			},
+			{
+				"selector": "typeProperty",
+				"format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
+				"leadingUnderscore": "allowSingleOrDouble",
+				"trailingUnderscore": "allowSingleOrDouble"
+			},
+			{
+				"selector": "typeProperty",
+				"format": ["strictCamelCase", "StrictPascalCase", "UPPER_CASE"],
+				"leadingUnderscore": "allowSingleOrDouble",
+				"trailingUnderscore": "allowSingleOrDouble"
+			},
+			{
+				"selector": "variable",
+				"format": ["UPPER_CASE", "PascalCase"],
+				"modifiers": ["exported", "const"]
+			},
+			{
+				"selector": "variable",
+				"modifiers": ["exported", "const"],
+				"format": ["PascalCase", "camelCase"],
+				"types": ["function"],
+				"custom": {
+					"regex": "^(use[A-Z][a-zA-Z0-9]*|select[A-Z][a-zA-Z0-9]*|[A-Z][a-zA-Z0-9]*|[a-z][a-zA-Z0-9]*Atom)$",
+					"match": true
+				}
+			},
+			{
+				"selector": "variable",
+				"format": ["UPPER_CASE"],
+				"types": ["boolean", "number", "string"],
+				"modifiers": ["exported", "const"]
+			}
+		],
+		"naming/case": ["error", "kebab"],
+		"prettier/prettier": "warn",
+		"simple-import-sort/imports": "warn",
+		"simple-import-sort/exports": "warn",
+		"react/no-unknown-property": "off",
+		"roblox-ts/lua-truthiness": "off",
+		"react/self-closing-comp": "warn",
+		"unused-imports/no-unused-imports": "warn",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+		"react/jsx-uses-react": "warn",
+		"react/jsx-uses-vars": "warn",
+		"no-restricted-imports": [
+			"error",
+			{
+			  "patterns": [
+				{
+				  "group": ["./", "../"],
+				  "message": "Relative imports are not allowed."
+				}
+			  ]
+			}
+		]
+	},
+	"overrides": [
+		{
+		  "files": ["**/index.ts"],
+		  "rules": {
+			"no-restricted-imports": "off"
+		  }
+		}
+	]
+}

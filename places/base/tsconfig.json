@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"typeRoots": ["node_modules/@rbxts", "node_modules/@flamework", "../../node_modules/@rbxts", "../../node_modules/@flamework", "../common/src/*"],
+		"rootDirs": ["src", "../common/src"],
+		"outDir": "out",
+		"baseUrl": "src",
+		"paths": {
+			"common/*": ["./../../common/src/*"],
+			"types/*": ["./../src/types"]
+		}
+	},
+	"include": ["**/*", "../common/**/*"],
+	"extends": "../../tsconfig.json"
+}
