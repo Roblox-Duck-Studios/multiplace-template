@@ -49,11 +49,11 @@
     "rbxts-transformer-flamework": "^1.2.3",
     "rbxts-transformer-services": "1.1.1",
     "roblox-ts": "3.0.0",
-    "typescript": "=5.5.4"
+    "typescript": "=5.5.4",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0"
   },
   "dependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
     "@flamework/core": "^1.2.3",
     "@flamework/networking": "^1.2.3",
     "@rbxts/centurion": "1.0.1",
