@@ -16,6 +16,8 @@
     "compile:base": "cd places/base && rbxtsc --verbose && darklua process out dist --verbose",
     "watch:base": "cd places/base && rbxtsc -w --verbose",
     "build:base": "rojo build -o places/base/build.rbxl places/base && lune run sync-models places/base/build.rbxl base",
+    "prod:base": "rojo build -o places/base/build.rbxl places/base/production.project.json && lune run sync-models places/base/build.rbxl base",
+    "open:base": "xdg-open places/base/build.rbxl",
     "extract:base": "lune run extract-models places/base/build.rbxl base"
   },
   "keywords": [],

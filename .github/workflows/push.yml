@@ -34,9 +34,12 @@ jobs:
 
     - name: install packages
       run: bun i
+    
+    - name: compile production
+      run: bun prod:base
 
-    - name: compile base
-      run: bun compile:base
+    - name: build project
+      run: bun build:base
 
     - name: deploy
       env:
