@@ -1,5 +1,5 @@
 {
-	"name": "production",
+	"name": "development",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json"
@@ -9,15 +9,14 @@
 		"ServerScriptService": {
 			"$className": "ServerScriptService",
 			"TS": {
-				"$path": "dist/demo/src/server"
+				"$path": "dist/base/src/server"
 			},
 			"common": {
 				"$path": "dist/common/src/server"
 			}
 		},
 		"ServerStorage": {
-			"$className": "ServerStorage",
-			"$path": "../../store/base/ServerStorage.rbxm"
+			"$className": "ServerStorage"
 		},
 		"ReplicatedStorage": {
 			"$className": "ReplicatedStorage",
@@ -34,19 +33,18 @@
 				}
 			},
 			"TS": {
-				"$path": "dist/demo/src/shared"
+				"$path": "dist/base/src/shared"
 			},
 			"common": {
 				"$path": "dist/common/src/shared"
-			},
-			"$path": "../../store/base/ReplicatedStorage.rbxm"
+			}
 		},
 		"StarterPlayer": {
 			"$className": "StarterPlayer",
 			"StarterPlayerScripts": {
 				"$className": "StarterPlayerScripts",
 				"TS": {
-					"$path": "dist/demo/src/client"
+					"$path": "dist/base/src/client"
 				},
 				"common": {
 					"$path": "dist/common/src/client"
@@ -54,8 +52,7 @@
 			}
 		},
 		"Workspace": {
-			"$className": "Workspace",
-			"$path": "../../store/base/Workspace.rbxm"
+			"$className": "Workspace"
 		},
 		"HttpService": {
 			"$className": "HttpService",
