@@ -1,6 +1,6 @@
-import { BindingOrValue } from "@rbxts/pretty-react-hooks";
-import React, { forwardRef, PropsWithChildren } from "@rbxts/react";
 import { Corner } from "common/client/ui/components/primitive/corner";
+import React, { PropsWithChildren, forwardRef } from "@rbxts/react";
+import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 
 interface CanvasGroupProps extends PropsWithChildren {
 	/** The corner radius for the canvas group. */
@@ -25,15 +25,15 @@ interface CanvasGroupProps extends PropsWithChildren {
  * @see https://developer.roblox.com/en-us/api-reference/class/CanvasGroup
  */
 const CanvasGroup = forwardRef(
-	({ CornerRadius, Visible = true, children }: Readonly<CanvasGroupProps>, ref: React.Ref<CanvasGroup>) => {
+	({ Visible = true, CornerRadius, children }: Readonly<CanvasGroupProps>, ref: React.Ref<CanvasGroup>) => {
 		return (
 			<canvasgroup
-				ref={ref}
+				Position={new UDim2(0.5, 0, 0.5, 0)}
 				AnchorPoint={new Vector2(0.5, 0.5)}
 				BackgroundTransparency={1}
 				BorderSizePixel={0}
-				Position={new UDim2(0.5, 0, 0.5, 0)}
 				Visible={Visible}
+				ref={ref}
 			>
 				{CornerRadius ? <Corner Radius={CornerRadius} /> : undefined}
 				{children}

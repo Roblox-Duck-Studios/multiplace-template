@@ -1,4 +1,4 @@
-{
+{	
 	"name": "flamework-game",
 	"globIgnorePaths": [
 		"**/package.json",

@@ -1,7 +1,8 @@
-import { useLatestCallback } from "@rbxts/pretty-react-hooks";
+import type { MotionGoal, Motion } from "@rbxts/ripple";
 import type { Binding } from "@rbxts/react";
+
+import { useLatestCallback } from "@rbxts/pretty-react-hooks";
 import { useBinding, useEffect, useMemo } from "@rbxts/react";
-import type { Motion, MotionGoal } from "@rbxts/ripple";
 import { createMotion } from "@rbxts/ripple";
 import { RunService } from "@rbxts/services";
 
@@ -26,7 +27,7 @@ export function useMotion<T extends MotionGoal, U = T>(
 export function useMotion<T extends MotionGoal, U = T>(
 	goal: T,
 	mapper?: (value: T) => U,
-): LuaTuple<[Binding<T>, Motion]> | LuaTuple<[Binding<U>, Motion<T>]> {
+): LuaTuple<[Binding<U>, Motion<T>]> | LuaTuple<[Binding<T>, Motion]> {
 	const motion = useMemo(() => createMotion(goal), [goal]);
 
 	const get = useLatestCallback(() => {

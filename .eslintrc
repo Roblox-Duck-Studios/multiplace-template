@@ -15,7 +15,6 @@
 		"roblox-ts",
 		"prettier",
 		"unused-imports",
-		"simple-import-sort",
 		"jsx-a11y"
 	],
 	"extends": [
@@ -26,7 +25,8 @@
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:@cspell/recommended",
-		"plugin:naming/recommended"
+		"plugin:naming/recommended",
+		"plugin:perfectionist/recommended-line-length-legacy"
 	],
 	"settings": {
 		"react": {
@@ -168,8 +168,6 @@
 		],
 		"naming/case": ["error", "kebab"],
 		"prettier/prettier": "warn",
-		"simple-import-sort/imports": "warn",
-		"simple-import-sort/exports": "warn",
 		"react/no-unknown-property": "off",
 		"roblox-ts/lua-truthiness": "off",
 		"react/self-closing-comp": "warn",
@@ -185,6 +183,13 @@
         ],
 		"react/jsx-uses-react": "warn",
 		"react/jsx-uses-vars": "warn",
+		"perfectionist/sort-exports": [
+			"error",
+			{
+			  "type": "alphabetical"
+			}
+		],
+		"perfectionist/sort-modules": "off",
 		"no-restricted-imports": [
 			"error",
 			{

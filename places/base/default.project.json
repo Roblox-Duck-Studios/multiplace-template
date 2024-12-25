@@ -1,5 +1,5 @@
 {
-	"name": "flamework-game",
+	"name": "development",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json"
@@ -9,11 +9,14 @@
 		"ServerScriptService": {
 			"$className": "ServerScriptService",
 			"TS": {
-				"$path": "out/demo/src/server"
+				"$path": "out/base/src/server"
 			},
 			"common": {
 				"$path": "out/common/src/server"
 			}
+		},
+		"ServerStorage": {
+			"$className": "ServerStorage"
 		},
 		"ReplicatedStorage": {
 			"$className": "ReplicatedStorage",
@@ -30,7 +33,7 @@
 				}
 			},
 			"TS": {
-				"$path": "out/demo/src/shared"
+				"$path": "out/base/src/shared"
 			},
 			"common": {
 				"$path": "out/common/src/shared"
@@ -41,7 +44,7 @@
 			"StarterPlayerScripts": {
 				"$className": "StarterPlayerScripts",
 				"TS": {
-					"$path": "out/demo/src/client"
+					"$path": "out/base/src/client"
 				},
 				"common": {
 					"$path": "out/common/src/client"
@@ -61,15 +64,6 @@
 			"$className": "SoundService",
 			"$properties": {
 				"RespectFilteringEnabled": true
-			}
-		},
-		"TestService": {
-			"$className": "TestService",
-			"$properties": {
-				"ExecuteWithStudioRun": true
-			},
-			"tests": {
-				"$path": "../../scripts/place"
 			}
 		}
 	}

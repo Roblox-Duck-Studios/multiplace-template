@@ -1,6 +1,6 @@
-import { BindingOrValue, useBindingListener, useCamera } from "@rbxts/pretty-react-hooks";
-import React, { useState } from "@rbxts/react";
+import { useBindingListener, BindingOrValue, useCamera } from "@rbxts/pretty-react-hooks";
 import { createPortal } from "@rbxts/react-roblox";
+import React, { useState } from "@rbxts/react";
 
 interface BackgroundBlurProps {
 	/** The size of the blur effect. */

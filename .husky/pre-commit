@@ -1,0 +1,3 @@
+bun clean
+bun extract:base
+git stage .

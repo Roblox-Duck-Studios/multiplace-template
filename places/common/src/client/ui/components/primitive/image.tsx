@@ -1,12 +1,11 @@
+import React, { PropsWithChildren, forwardRef } from "@rbxts/react";
 import { BindingOrValue } from "@rbxts/pretty-react-hooks";
-import React, { forwardRef, PropsWithChildren } from "@rbxts/react";
-import { AssetId } from "common/types/utils/roblox";
 
 export interface ImageProps extends PropsWithChildren {
-	/** The image to display. */
-	Image: BindingOrValue<AssetId>;
 	/** Optional corner radius */
 	CornerRadius?: BindingOrValue<UDim>;
+	/** The image to display. */
+	Image: BindingOrValue<string>;
 }
 
 /**
@@ -27,15 +26,15 @@ export interface ImageProps extends PropsWithChildren {
  *
  * @see https://developer.roblox.com/en-us/api-reference/class/ImageLabel
  */
-const Image = forwardRef(({ Image, CornerRadius, children }: ImageProps, ref: React.Ref<ImageLabel>) => {
+const Image = forwardRef(({ CornerRadius, children, Image }: ImageProps, ref: React.Ref<ImageLabel>) => {
 	return (
 		<imagelabel
-			ref={ref}
+			Position={new UDim2(0.5, 0, 0.5, 0)}
 			AnchorPoint={new Vector2(0.5, 0.5)}
+			Size={new UDim2(1, 0, 1, 0)}
 			BackgroundTransparency={1}
 			Image={Image}
-			Position={new UDim2(0.5, 0, 0.5, 0)}
-			Size={new UDim2(1, 0, 1, 0)}
+			ref={ref}
 		>
 			{CornerRadius ? <uicorner CornerRadius={CornerRadius} /> : undefined}
 			{children}

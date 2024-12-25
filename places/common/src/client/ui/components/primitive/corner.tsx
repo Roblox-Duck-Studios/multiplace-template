@@ -1,6 +1,6 @@
-import { BindingOrValue, getBindingValue } from "@rbxts/pretty-react-hooks";
-import React from "@rbxts/react";
+import { getBindingValue, BindingOrValue } from "@rbxts/pretty-react-hooks";
 import { usePx } from "common/client/ui/hooks/use-px";
+import React from "@rbxts/react";
 
 interface CornerProps {
 	Radius: BindingOrValue<number>;

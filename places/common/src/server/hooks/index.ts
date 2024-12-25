@@ -7,9 +7,9 @@ export interface OnPlayerJoin {
 }
 
 export interface OnCharacterAdd {
-	onCharacterAdd(character: Character): void;
+	onCharacterAdd(character: Model): void;
 }
 
 export interface OnCharacterRemove {
-	onCharacterRemove(character: Character): void;
+	onCharacterRemove(character: Model): void;
 }

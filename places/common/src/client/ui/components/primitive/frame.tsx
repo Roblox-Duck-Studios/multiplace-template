@@ -1,5 +1,6 @@
-import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 import type { PropsWithChildren, Ref } from "@rbxts/react";
+
+import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 import React, { forwardRef } from "@rbxts/react";
 
 interface FrameProps extends PropsWithChildren {
@@ -30,11 +31,11 @@ interface FrameProps extends PropsWithChildren {
 const Frame = forwardRef(({ CornerRadius, children }: Readonly<FrameProps>, ref: Ref<Frame>) => {
 	return (
 		<frame
-			ref={ref}
-			AnchorPoint={new Vector2(0.5, 0.5)}
 			Position={new UDim2(0.5, 0, 0.5, 0)}
+			AnchorPoint={new Vector2(0.5, 0.5)}
 			Size={new UDim2(1, 0, 1, 0)}
 			BorderSizePixel={0}
+			ref={ref}
 		>
 			{children}
 			{CornerRadius ? <uicorner CornerRadius={CornerRadius} /> : undefined}

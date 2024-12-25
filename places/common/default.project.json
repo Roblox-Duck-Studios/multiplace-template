@@ -56,15 +56,6 @@
 			"$properties": {
 				"RespectFilteringEnabled": true
 			}
-		},
-		"TestService": {
-			"$className": "TestService",
-			"$properties": {
-				"ExecuteWithStudioRun": true
-			},
-			"tests": {
-				"$path": "../../scripts/common.luau"
-			}
 		}
 	}
 }

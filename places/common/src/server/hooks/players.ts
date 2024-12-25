@@ -1,12 +1,12 @@
 import { Modding, OnStart, Service } from "@flamework/core";
 import { Players } from "@rbxts/services";
 
-import { OnPlayerJoin, OnPlayerLeave } from ".";
+import { OnPlayerLeave, OnPlayerJoin } from ".";
 
 @Service({ loadOrder: 1 })
 export class PlayerSpawnService implements OnStart {
-	private readonly JoinListeners = new Set<OnPlayerJoin>();
 	private readonly LeaveListeners = new Set<OnPlayerLeave>();
+	private readonly JoinListeners = new Set<OnPlayerJoin>();
 
 	onStart(): void {
 		Modding.onListenerAdded<OnPlayerJoin>((obj) => this.JoinListeners.add(obj));

@@ -8,8 +8,8 @@
  */
 export function Storybook(name: string, storyRoots?: Array<Instance>, groupRoots = true) {
 	return {
-		name: name,
 		storyRoots: storyRoots || getfenv(2).script.Parent?.GetChildren(),
 		groupRoots: groupRoots,
+		name: name,
 	};
 }

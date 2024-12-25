@@ -1,6 +1,6 @@
+import Group from "common/client/ui/components/primitive/group";
 import { useViewport } from "@rbxts/pretty-react-hooks";
 import React from "@rbxts/react";
-import Group from "common/client/ui/components/primitive/group";
 
 const MAX_ASPECT_RATIO = 19 / 9;
 const BASE_RESOLUTION = new Vector2(1920, 1020);
