@@ -1,5 +1,5 @@
 {
-	"name": "flamework-game",
+	"name": "production",
 	"globIgnorePaths": [
 		"**/package.json",
 		"**/tsconfig.json"
@@ -14,6 +14,10 @@
 			"common": {
 				"$path": "dist/common/src/server"
 			}
+		},
+		"ServerStorage": {
+			"$className": "ServerStorage",
+			"$path": "../../store/base/ServerStorage.rbxm"
 		},
 		"ReplicatedStorage": {
 			"$className": "ReplicatedStorage",
@@ -34,7 +38,8 @@
 			},
 			"common": {
 				"$path": "dist/common/src/shared"
-			}
+			},
+			"$path": "../../store/base/ReplicatedStorage.rbxm"
 		},
 		"StarterPlayer": {
 			"$className": "StarterPlayer",
@@ -49,7 +54,8 @@
 			}
 		},
 		"Workspace": {
-			"$className": "Workspace"
+			"$className": "Workspace",
+			"$path": "../../store/base/Workspace.rbxm"
 		},
 		"HttpService": {
 			"$className": "HttpService",

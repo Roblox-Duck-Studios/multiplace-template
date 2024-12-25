@@ -1,5 +1,3 @@
-name: "deploy"
-
 on:
  workflow_dispatch:        
  push: 
@@ -9,8 +7,7 @@ on:
   branches: [main]
 
 jobs:
-
- linting:
+ lint:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v4
@@ -26,7 +23,7 @@ jobs:
       run: bun run eslint
 
  deploy:
-  needs: linting
+  needs: lint
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v4
@@ -38,25 +35,13 @@ jobs:
     - name: install packages
       run: bun i
 
-    - name: compile demo
-      run: cd places/demo && bun run build
-    
-    - name: compile common
-      run: cd places/common && bun run build
+    - name: compile base
+      run: bun compile:base
 
-    - name: process demo
-      run: darklua process places/demo/out places/demo/dist -v -c .darklua.json
-
-    - name: setup lune
-      run: lune setup
-
-    - name: offline sync
-      run: lune run sync places/demo darklua.project.json
-      
     - name: deploy
       env:
         UID: ${{vars.UNIVERSE}}
-        DEMO: ${{vars.PLACE}}
+        BASE: ${{vars.PLACE}}
         API_KEY: ${{secrets.RBX_CLOUD}}
-        FILE: places/demo/build.rbxl
-      run: rbxcloud experience publish -a "$API_KEY" -u "$UID" -p "$DEMO" -t published -f "$FILE" 
+        FILE: places/BASE/build.rbxl
+      run: rbxcloud experience publish -a "$API_KEY" -u "$UID" -p "$BASE" -t published -f "$FILE" 

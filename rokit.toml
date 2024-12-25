@@ -1,7 +1,7 @@
 [tools]
 rojo = "rojo-rbx/rojo@7.4.4"
 asphalt = "jackTabsCode/asphalt@0.8.1"
-darklua = "seaofvoices/darklua@0.14.0"
+darklua = "seaofvoices/darklua@0.15.0"
 lune = "lune-org/lune@0.8.9"
 rbxcloud = "Sleitnick/rbxcloud@0.14.0"
 blink = "1Axen/Blink@0.14.15"

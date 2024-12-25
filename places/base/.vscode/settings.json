@@ -20,11 +20,8 @@
 		"**/.git": true,
 		"**/include": true,
 		"**/.eslintrc": true,
-		"**/default.project.json": true,
-		"**/tsconfig.json": true,
 		"**/out": true,
 		"**/flamework.build": true,
-		"**/darklua.project.json": true,
 		"**/.darklua.json": true
 	}
 }

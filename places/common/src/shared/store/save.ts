@@ -1,5 +1,6 @@
 import { atom } from "@rbxts/charm";
-import { produce } from "@rbxts/immut";
+import { isDraft, produce } from "@rbxts/immut";
+import { PlayerSave } from "common/types/player-save";
 
 export const saveAtom = atom(new ReadonlyMap<number, PlayerSave>());
 
@@ -20,18 +21,11 @@ export function DeleteSave(userid: number) {
 }
 
 export function PatchSave(userid: number, patch: Partial<PlayerSave>) {
-	saveAtom((state) => Remap.update(state, userid, (value) => ({ ...value!, ...patch })));
-	saveAtom((state) => Remap.update(state, userid, (value) => ({ ...value!, ...patch })));
-	saveAtom(())
+	saveAtom((state) => produce(state, (draft) => {
+		const previous = draft.get(userid)!
+		draft.set(userid, {...previous, ...patch!})
+	}))
 }
 
-export function PatchPurchaseHistory(userid: number, purchaseInfo: PurchaseInfo) {
-	saveAtom((state) =>
-		Remap.update(state, userid, (value) => ({
-			...value,
-			purchaseHistory: push(value!.purchaseHistory, purchaseInfo),
-		})),
-	);
-}
 
 export const selectPlayerSave = (userid: number) => () => saveAtom().get(userid);

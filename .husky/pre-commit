@@ -1,0 +1,2 @@
+bun clean
+bun extract:base

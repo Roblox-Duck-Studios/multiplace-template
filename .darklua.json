@@ -1,5 +1,5 @@
 {
-	"generator": "dense",
+	"generator": "retain_lines",
 	"rules": [
 		"remove_spaces",
 		"remove_assertions",

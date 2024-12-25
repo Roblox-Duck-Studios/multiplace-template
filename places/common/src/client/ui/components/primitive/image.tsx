@@ -1,10 +1,9 @@
 import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 import React, { forwardRef, PropsWithChildren } from "@rbxts/react";
-import { AssetId } from "common/types/utils/roblox";
 
 export interface ImageProps extends PropsWithChildren {
 	/** The image to display. */
-	Image: BindingOrValue<AssetId>;
+	Image: BindingOrValue<string>;
 	/** Optional corner radius */
 	CornerRadius?: BindingOrValue<UDim>;
 }

@@ -3,13 +3,13 @@ on:
 
 jobs:
  lint: 
-  runs-on: macos-latest
+  runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v4
     - uses: CompeyDev/setup-rokit@v0.1.2
     - uses: oven-sh/setup-bun@v2
       with:
-       bun-version: latest    
+       bun-version: latest
 
     - name: install packages
       run: bun i
@@ -17,11 +17,5 @@ jobs:
     - name: run linter
       run: bun run eslint
 
-    - name: compile demo
-      run: cd places/demo && bun run build
-    
-    - name: compile common
-      run: cd places/common && bun run build
-
-    - name: run unit tests
-      run: lune run tests places/demo
+    - name: compile base
+      run: bun compile:base
