@@ -1,11 +1,11 @@
 import { Modding, OnStart, Service } from "@flamework/core";
 
-import { OnCharacterAdd, OnCharacterRemove, OnPlayerJoin } from ".";
+import { OnCharacterRemove, OnCharacterAdd, OnPlayerJoin } from ".";
 
 @Service()
-export default class CharacterAddService implements OnStart, OnPlayerJoin {
-	private readonly AddListener = new Set<OnCharacterAdd>();
+export default class CharacterAddService implements OnPlayerJoin, OnStart {
 	private readonly RemoveListener = new Set<OnCharacterRemove>();
+	private readonly AddListener = new Set<OnCharacterAdd>();
 	onStart(): void {
 		Modding.onListenerAdded<OnCharacterAdd>((obj) => this.AddListener.add(obj));
 		Modding.onListenerRemoved<OnCharacterAdd>((obj) => this.AddListener.delete(obj));

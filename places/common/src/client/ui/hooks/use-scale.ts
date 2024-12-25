@@ -1,5 +1,5 @@
-import { useContext } from "@rbxts/react";
 import { ScalerContext } from "common/client/ui/context/scaler-context";
+import { useContext } from "@rbxts/react";
 
 export function useScale() {
 	const context = useContext(ScalerContext);

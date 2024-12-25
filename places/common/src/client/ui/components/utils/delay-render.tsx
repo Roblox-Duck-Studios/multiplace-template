@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "@rbxts/react";
 import { setTimeout } from "@rbxts/set-timeout";
 
 interface DelayRenderProps extends React.PropsWithChildren {
-	/** The delay (in seconds) before rendering the children component. */
-	mountDelay?: number;
 	/**
 	 * Indicates whether the children component should be rendered. If true, the
 	 * children component will be rendered after the mountDelay. If false, the
@@ -12,6 +10,8 @@ interface DelayRenderProps extends React.PropsWithChildren {
 	shouldRender: boolean;
 	/** The delay (in seconds) before unmounting the children component. */
 	unmountDelay?: number;
+	/** The delay (in seconds) before rendering the children component. */
+	mountDelay?: number;
 }
 
 /**
@@ -35,9 +35,9 @@ interface DelayRenderProps extends React.PropsWithChildren {
  * @component
  */
 export function DelayRender({
+	unmountDelay = 0,
 	mountDelay = 0,
 	shouldRender,
-	unmountDelay = 0,
 	children,
 }: Readonly<DelayRenderProps>): React.ReactNode {
 	const [render, setRender] = useState(false);

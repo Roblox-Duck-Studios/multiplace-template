@@ -1,12 +1,13 @@
-import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 import type { Ref } from "@rbxts/react";
+
+import { BindingOrValue } from "@rbxts/pretty-react-hooks";
 import React, { forwardRef } from "@rbxts/react";
 
 export interface TextProps<T extends Instance = TextLabel> extends React.PropsWithChildren {
-	/** An optional helper that rounds the corners of the text. */
-	readonly cornerRadius?: BindingOrValue<UDim>;
 	/** The default properties of the component. */
 	readonly native?: Partial<React.InstanceProps<T>>;
+	/** An optional helper that rounds the corners of the text. */
+	readonly cornerRadius?: BindingOrValue<UDim>;
 }
 
 /**
@@ -28,7 +29,7 @@ export interface TextProps<T extends Instance = TextLabel> extends React.PropsWi
  *
  * @see https://create.roblox.com/docs/reference/engine/classes/textlabel
  */
-export const Text = forwardRef(({ cornerRadius, native, children }: TextProps, ref: Ref<TextLabel>) => {
+export const Text = forwardRef(({ cornerRadius, children, native }: TextProps, ref: Ref<TextLabel>) => {
 	const { AnchorPoint, Position } = native ?? {};
 
 	return (

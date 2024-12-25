@@ -11,8 +11,8 @@ function isEqualOrUndefined(previousValue: unknown, value: unknown): boolean {
  * @param initialValue - The initial value to use if `value` is `undefined`.
  * @returns A non-nullable value.
  */
-export function useDefined<T>(value: T | undefined, initialValue: T): T;
+export function useDefined<T>(value: undefined | T, initialValue: T): T;
 export function useDefined<T>(value: T, initialValue?: T): T;
-export function useDefined<T>(value: T, initialValue?: T): T | undefined {
+export function useDefined<T>(value: T, initialValue?: T): undefined | T {
 	return useLatest(value, isEqualOrUndefined).current ?? initialValue;
 }

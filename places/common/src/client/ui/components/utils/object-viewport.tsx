@@ -1,12 +1,12 @@
-import Make from "@rbxts/make";
 import { useMountEffect } from "@rbxts/pretty-react-hooks";
 import React, { useRef } from "@rbxts/react";
+import Make from "@rbxts/make";
 
 export interface ObjectViewportProps extends React.PropsWithChildren {
-	/** Additional depth to push the camera back. */
-	extraCameraDepth?: number;
 	/** The native props to a viewport. */
 	native: React.InstanceProps<ViewportFrame>;
+	/** Additional depth to push the camera back. */
+	extraCameraDepth?: number;
 	/** The object to be displayed in the viewport. */
 	object: BasePart | Model;
 }
@@ -44,9 +44,9 @@ function setDefaultCameraView(camera: Camera, model: Model, cameraDepth = 0): vo
  */
 export default function ObjectViewport({
 	extraCameraDepth,
+	children,
 	native,
 	object,
-	children,
 }: Readonly<ObjectViewportProps>): React.ReactNode {
 	// Setup the viewport after mounting when we have a ref to it
 	const viewportRef = useRef<ViewportFrame>();
@@ -58,8 +58,8 @@ export default function ObjectViewport({
 		let model = object;
 		if (!model.IsA("Model")) {
 			model = Make("Model", {
-				Children: [object],
 				PrimaryPart: object as BasePart,
+				Children: [object],
 			});
 		}
 

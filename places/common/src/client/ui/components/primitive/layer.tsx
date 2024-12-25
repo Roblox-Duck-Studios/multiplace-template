@@ -1,7 +1,7 @@
-import React from "@rbxts/react";
-import Group from "common/client/ui/components/primitive/group";
 import UltraWideContainer from "common/client/ui/components/utils/ultra-wide-container";
+import Group from "common/client/ui/components/primitive/group";
 import { IS_EDIT } from "common/shared/constants/game";
+import React from "@rbxts/react";
 
 export interface LayerProps extends React.PropsWithChildren {
 	/**
@@ -48,7 +48,7 @@ export default function Layer({
 	return IS_EDIT ? (
 		<Group>{clampUltraWide ? <UltraWideContainer>{children}</UltraWideContainer> : children}</Group>
 	) : (
-		<screengui DisplayOrder={displayOrder} IgnoreGuiInset={true} ResetOnSpawn={false} ZIndexBehavior="Sibling">
+		<screengui DisplayOrder={displayOrder} ZIndexBehavior="Sibling" IgnoreGuiInset={true} ResetOnSpawn={false}>
 			{clampUltraWide ? <UltraWideContainer>{children}</UltraWideContainer> : children}
 		</screengui>
 	);
