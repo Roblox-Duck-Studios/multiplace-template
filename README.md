@@ -27,6 +27,7 @@ Make sure you have [ESLint](https://marketplace.visualstudio.com/items?itemName=
 * Run: `rokit install`
 * Run: `bun i` or `npm i`
 * Edit `asphalt.toml`'s `creator` group
+* Edit `.github/workflows/push.yml` and setup environment secrets both on `.env` and on github to enable fully managed rojo workflow
 ### Utiltiy scripts declared in `package.json`
 * `eslint`: strict version of running linter, errors when warnings pop up
 * `lint`: more friendly version of linting, doesn't error when warning pops up

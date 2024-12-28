@@ -1,0 +1,1 @@
+This place is where you store all your asphalt assets, it will get synced to `places/common/shared/assets`
