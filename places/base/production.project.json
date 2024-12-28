@@ -1,8 +1,12 @@
 {
-	"name": "development",
+	"name": "production",
 	"globIgnorePaths": [
 		"**/package.json",
-		"**/tsconfig.json"
+		"**/tsconfig.json",
+		"**/*.storybook.ts",
+		"**/*.story.luau",
+		"**/*.spec.luau",
+		"**/*run-tests.luau"
 	],
 	"tree": {
 		"$className": "DataModel",

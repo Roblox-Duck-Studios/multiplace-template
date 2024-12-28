@@ -19,3 +19,6 @@ jobs:
 
     - name: compile base
       run: bun compile:base
+    
+    - name: run tests
+      run: bun test:base
