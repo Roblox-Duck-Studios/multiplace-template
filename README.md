@@ -23,7 +23,7 @@ This template aims to provide stricter coding styles and is stolen from some int
 
 # Getting Started
 Make sure you have [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed. Its not suggested to install cspell plugin, roblox-ts plugin and prettier plugin as it may conflict with the setup.
-* Clone this repository
+* Run: `npx degit Roblox-Duck-Studios/multiplace-template`
 * Run: `rokit install`
 * Run: `bun i` or `npm i`
 * Edit `asphalt.toml`'s `creator` group
