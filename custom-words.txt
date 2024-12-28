@@ -1,3 +1,4 @@
 darklua
 udim
 getfenv
+Serializeable # charm payload converter

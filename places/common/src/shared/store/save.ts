@@ -21,12 +21,13 @@ export function DeleteSave(userid: number) {
 }
 
 export function PatchSave(userid: number, patch: Partial<PlayerSave>) {
-	saveAtom((state) =>
-		produce(state, (draft) => {
-			const previous = draft.get(userid)!;
-			draft.set(userid, { ...previous, ...patch! });
-		}),
-	);
+	if (getPlayerSave(userid))
+		saveAtom((state) =>
+			produce(state, (draft) => {
+				const previous = getPlayerSave(userid)!;
+				draft.set(userid, { ...previous, ...patch! });
+			}),
+		);
 }
 
-export const selectPlayerSave = (userid: number) => () => saveAtom().get(userid);
+export const getPlayerSave = (userid: number) => saveAtom().get(userid);

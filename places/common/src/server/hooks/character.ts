@@ -4,24 +4,24 @@ import { OnCharacterRemove, OnCharacterAdd, OnPlayerJoin } from ".";
 
 @Service()
 export default class CharacterAddService implements OnPlayerJoin, OnStart {
-	private readonly RemoveListener = new Set<OnCharacterRemove>();
-	private readonly AddListener = new Set<OnCharacterAdd>();
+	private readonly removeListener = new Set<OnCharacterRemove>();
+	private readonly addListener = new Set<OnCharacterAdd>();
 	onStart(): void {
-		Modding.onListenerAdded<OnCharacterAdd>((obj) => this.AddListener.add(obj));
-		Modding.onListenerRemoved<OnCharacterAdd>((obj) => this.AddListener.delete(obj));
-		Modding.onListenerAdded<OnCharacterRemove>((obj) => this.RemoveListener.add(obj));
-		Modding.onListenerRemoved<OnCharacterRemove>((obj) => this.RemoveListener.delete(obj));
+		Modding.onListenerAdded<OnCharacterAdd>((obj) => this.addListener.add(obj));
+		Modding.onListenerRemoved<OnCharacterAdd>((obj) => this.addListener.delete(obj));
+		Modding.onListenerAdded<OnCharacterRemove>((obj) => this.removeListener.add(obj));
+		Modding.onListenerRemoved<OnCharacterRemove>((obj) => this.removeListener.delete(obj));
 	}
 
 	onPlayerJoin(player: Player): void {
-		player.CharacterAdded.Connect((character) => this.CharacterAdded(character));
+		player.CharacterAdded.Connect((character) => this.characterAdded(character));
 		player.CharacterRemoving.Connect((character) => {
-			for (const listener of this.RemoveListener) listener.onCharacterRemove(character);
+			for (const listener of this.removeListener) listener.onCharacterRemove(character);
 		});
-		if (player.Character !== undefined) this.CharacterAdded(player.Character);
+		if (player.Character !== undefined) this.characterAdded(player.Character);
 	}
 
-	private async CharacterAdded(character: Model) {
-		for (const listener of this.AddListener) task.spawn(() => listener.onCharacterAdd(character));
+	private async characterAdded(character: Model) {
+		for (const listener of this.addListener) task.spawn(() => listener.onCharacterAdd(character));
 	}
 }
