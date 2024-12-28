@@ -1,3 +1,4 @@
+# Multiplace Template
 This template aims to provide stricter coding styles and is stolen from some internal code I worked on for free but the project has discontinued. I have decided to take this internal code out and removed any code related to the game since its actually a really nice setup. **This setup is not recommended for beginners, as it requires a deep unnderstanding of lots of tools. Tweaking the configurations will take some effort**
 
 # Features
@@ -9,11 +10,36 @@ This template aims to provide stricter coding styles and is stolen from some int
 * Very strict eslint rules with naming convetions in mind
 * JunkService to store player signal connections
 * Save service to handle player data
-* Offline unit testing without opening studio using `bun test:base`
+* Offline unit testing without opening studio using `bun test:base` (testez, lune)
 * Full rojo managed workflow by extracting files every commit
 * Husky hooks to fix fixable issues for eslint rules
 * Enforces conventional commits with commitlint
-* Automatic dependency upgrade with dependabot
+* Dependency upgrade with dependabot
+* Darklua code converter for production builds
+* Asphalt image uploading on common folder
+* Utility hooks for react
+* `ScalerContext` for `usePx` or `useScaler` hooks to wrap around
+* Storygroup utilities
+
+# Getting Started
+Make sure you have [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) installed. Its not suggested to install cspell plugin, roblox-ts plugin and prettier plugin as it may conflict with the setup.
+* Clone this repository
+* Run: `rokit install`
+* Run: `bun i` or `npm i`
+* Edit `asphalt.toml`'s `creator` group
+### Utiltiy scripts declared in `package.json`
+* `eslint`: strict version of running linter, errors when warnings pop up
+* `lint`: more friendly version of linting, doesn't error when warning pops up
+* `fix`: fixes all the problems eslint could fix by itself
+* `watch`: watches the current directory, you should use it only the working directory
+* `clean`: deletes all the `out` folder in all directories
+* `compile:base`: compiles and processes files using darklua for `place/base` directory
+* `watch:base`: roblox-ts watch mode
+* `build:base`: builds developer version of the place
+* `prod:base`: builds production version of the place using darklua processed files
+* `open:base`: opens the place file for `base` folder with arch linux commands
+* `test:base`: runs unit test based on your newest code offline without opening studio
+You may modify any scripts for your own use but its suggested not unless you know what is going on
 
 ## Naming Conventions (outdated)
 - **Classes**: `PascalCase`
