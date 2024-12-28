@@ -1,9 +1,21 @@
-This template aims to provide stricter coding styles and is stolen from some internal code I worked on for free but the project has discontinued. I have decided to take this internal code out and removed any code related to the game since its actually a really nice setup.
+This template aims to provide stricter coding styles and is stolen from some internal code I worked on for free but the project has discontinued. I have decided to take this internal code out and removed any code related to the game since its actually a really nice setup. **This setup is not recommended for beginners, as it requires a deep unnderstanding of lots of tools. Tweaking the configurations will take some effort**
 
-# Instructions
-I am currently using a linux machine so there are some specific commands in scripts that require you to be on linux. It is fine to tweak it such as `xdg-open` command for your own use. This repository has very strict eslint rules
+# Features
+* Dependency Injection in `deps` folder
+* Create React App style of UI managment, inspired by [slither's](https://github.com/littensy/slither/tree/main/src/client/app) management style
+* Common folder to share scripts used across different places
+* Automatic charm state managment with flamework binary serializer (charm-service, charm-controller). Uses DI to handle different syncers
+* CSpell with roblox-ts and roblox dictionary in eslint
+* Very strict eslint rules with naming convetions in mind
+* JunkService to store player signal connections
+* Save service to handle player data
+* Offline unit testing without opening studio using `bun test:base`
+* Full rojo managed workflow by extracting files every commit
+* Husky hooks to fix fixable issues for eslint rules
+* Enforces conventional commits with commitlint
+* Automatic dependency upgrade with dependabot
 
-## Naming Conventions
+## Naming Conventions (outdated)
 - **Classes**: `PascalCase`
 - **Class Methods**: `PascalCase` or `camelCase`, allowing names like `onEvent` or `MyMethod`
 - **Class Properties**: `PascalCase`
